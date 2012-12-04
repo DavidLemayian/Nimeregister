@@ -1,2 +1,4 @@
-nimeregister.co.ke
-==================
+Nimeregister 
+============
+http://nimeregister.com
+

@@ -1,0 +1,15 @@
+pygments: true
+auto: true
+
+server_port: 4001
+
+title: Nimeregister!
+url: http://nimeregister.co.ke
+
+claim: Helping you the spread the word that we've GotToVote!
+
+author :
+  name : David Lemayian
+  email : david@gottovote.co.ke
+  github : http://github.com/DavidLemayian
+  twitter : @DavidLemayian
