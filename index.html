@@ -62,6 +62,7 @@ menu-title: Home
 				<div class="clearfix"></div>
 				<p class="lead"></p>
 				
+				<a class="btn btn-large btn-info" href="#" id="findlink" onclick="$('#find').scrollTop();">Find a Registration Centre</a>
 				<!--<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();">
 					<img src="img/tick.png" style="height: 20px; margin-top: -5px;" /> Nimeregister</a>-->
 			</div>
@@ -84,38 +85,37 @@ menu-title: Home
 	</div>
 </div>
 
-<div class="jumbotron" id="jumbotron" style="margin-top: 0;">
-	<a class="btn btn-large btn-info" href="#" id="findlink" onclick="$('#find').scrollTop();">Find a Registration Centre</a>
 </div>
-
-<hr />
-
+<div style="background: #232323; padding: 30px 0 0; color: #fff;">
+<div class="container-narrow">
 <div style="text-align: center;">
-	<h2>Add it To Your Profile Picture</h2>
-	
-	<p style="margin-top: 20px;">
-		<img src="img/portraits/ex1.png" alt="" class="img-polaroid"/>
-		<i class="icon-arrow-right"></i>
-		<img src="img/portraits/ex11.png" alt="" class="img-polaroid"/>
-	</p>
-	
-	<div style="margin-top: 20px;">
-		<p class="lead">Connect with <a href="#">Twitter</a> or <a href="#">Facebook</a>.</p>
-		
-	</div>
+	<h1>Nimeregister Profile Badge</h1>
+	<p class="lead">Get your Nimeregister profile badge today! It's easy.</p>
 	
 	<div class="row-fluid">
-		<div class="span6">
-			<div class="well" id="twitter-user">
+		<div class="span8 offset2" style="overflow: hidden;">
+			<div class="well" id="twitter-user" style="color: #333; padding-bottom: 50px; margin-bottom: -20px;">
+				<p style="margin-top: 20px;">
+					<img src="img/portraits/ex1.png" alt="" class="img-polaroid"/>
+					<i class="icon-arrow-right"></i>
+					<img src="img/portraits/ex11.png" alt="" class="img-polaroid"/>
+				</p>
+				
+				<div class="btn-group" data-toggle="buttons-radio" style="margin: 15px 0px;">
+					<button onclick="javascript:void(0);" class="btn btn-large active"> <b>Twitter</b></button>
+					<button onclick="javascript:void(0);" class="btn btn-large"> <b>Facebook</b></button>
+				</div>
+				
 				<h3 style="line-height:100%; margin-top: 0;">Twitter Connect</h3>
 				<div class="input-prepend" id="twitter-name" style="margin-bottom: 10px;">
 					<span class="add-on">@</span>
 					<input class="span6" id="prependedInput" type="text" placeholder="Username">
 				</div>
-				<a href="#" class="btn btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a>
+				<a href="#" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
 				<a href="#" class="btn btn-success disabled">Update Profile Image <i class="icon-ok icon-white"></i></a>
 			</div>
 		</div>
+		<!--
 		<div class="span6">
 			<div class="well" id="twitter-user">
 				<h3 style="line-height:100%; margin-top: 0;">Facebook Connect</h3>
@@ -126,12 +126,16 @@ menu-title: Home
 				<a href="#" class="btn btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a>
 				<a href="#" class="btn btn-success disabled">Update Profile Image <i class="icon-ok icon-white"></i></a>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	
 	
 	
 </div>
+</div>
+</div>
+
+<div class="container-narrow">
 
 <!--
 <a class="btn btn-large btn-success" href="#">Update Profile Pic</a>

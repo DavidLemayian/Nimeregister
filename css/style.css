@@ -13,7 +13,7 @@
  */
  
 body {
- 	padding-top: 20px;
+	padding-top: 20px;
  	padding-bottom: 40px;
 }
 
@@ -37,6 +37,9 @@ body {
 		height: 100px;
 	}
 
+#myCarousel .item{
+	height: 400px;
+}
  
 /* Main marketing message and sign up button */
 .jumbotron {
@@ -66,11 +69,10 @@ body {
 		}
 
 #twitter-user{
-	display: inline-block;
+	
 }
 	#twitter-user a{
 		margin: 5px;
-		width: 70%;
 	}
 
 /* Supporting marketing content */
