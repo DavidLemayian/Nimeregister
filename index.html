@@ -104,7 +104,7 @@ menu-title: Home
 				<hr style="width: 50%; margin: 20px auto;"/>
 				
 				<div class="btn-group" data-toggle="buttons-radio">
-					<button onclick="javascript:$('#badgeCarousel').carousel(0);;" class="btn btn-large active">
+					<button onclick="javascript:$('#badgeCarousel').carousel(0);" class="btn btn-large active">
 						<img src="img/logos/tw-icon.png" alt="Tw" style="height: 25px;"/>
 						<b>Twitter</b>
 					</button>
@@ -325,6 +325,14 @@ menu-title: Home
 
 <!-- Badge Watermark -->
 <script type="text/javascript" src="js/vendor/watermark.min.js"></script>
+<script type="text/javascript">
+	$('#badgeCarousel').carousel({
+	  interval: false
+	})
+	/*$('#badgeCarousel').bind('slid', function() {
+	    $('#badgeCarousel').carousel('pause');
+	});​*/
+</script>
 
 <!-- Find Registration Centres -->
 <script type="text/javascript" src="js/main.js"></script>
