@@ -98,16 +98,16 @@ menu-title: Home
 		<div class="span8 offset2" style="overflow: hidden;">
 			<div class="well" id="twitter-user" style="color: #333; padding-bottom: 50px; margin-bottom: -20px;">
 				<p style="margin-top: 20px;">
-					<img src="img/portraits/ex1.png" alt="" class="img-polaroid" style="height: 100px;"/>
+					<img src="img/portraits/ex1.png" alt="" class="img-polaroid" style="height: 100px;" id=""/>
 					<i class="icon-arrow-right"></i>
-					<img src="img/portraits/ex1.png" alt="" class="img-polaroid watermark"/>
+					<img src="img/portraits/ex1.png" alt="" class="img-polaroid watermark" id="wm_image"/>
 				</p>
 				
 				<ul class="nav nav-pills pull-right">
-					<li class="disabled"><a href="#"><small>Top Left</small></a></li>
-					<li><a href="#"><small>Top Right</small></a></li>
-					<li><a href="#"><small>Bottom Right</small></a></li>
-					<li><a href="#"><small>Bottom Left</small></a></li>
+					<li id="wm-tl"><a href="javascript:wm_top_left();"><small>Top Left</small></a></li>
+					<li id="wm-tr"><a href="javascript:wm_top_right();"><small>Top Right</small></a></li>
+					<li id="wm-br"><a href="javascript:wm_bottom_right();"><small>Bottom Right</small></a></li>
+					<li id="wm-bl"><a href="javascript:wm_bottom_left();"><small>Bottom Left</small></a></li>
 				</ul>
 				
 				<hr style="width: 50%; margin: 20px auto;"/>
@@ -335,20 +335,80 @@ menu-title: Home
 <!-- Badge Watermark -->
 <script type="text/javascript" src="js/vendor/watermark.js"></script>
 <script type="text/javascript">
-	var load = false;
-	//window.onload = function(){
-		if(!load) {
-			wmark.init({
-				/* config goes here */
-				"position": "top-right", // default "bottom-right"
-				"opacity": 90, // default 50
-				"className": "img-polaroid watermark", // default "watermark"
-				"path": "/img/badge-wm.png"
-			});
-			
-			load = true;
-		}
-	//}
+//	var load = false;
+//	window.onload = function(){
+//		if(!load) {
+//			wmark.init({
+//				/* config goes here */
+//				"position": "top-left", // default "bottom-right"
+//				"opacity": 90, // default 50
+//				"className": "img-polaroid watermark", // default "watermark"
+//				"path": "/img/badge-wm.png"
+//			});
+//			
+//			load = true;
+//		}
+//	}
+	
+	var src_img = "/img/portraits/ex1.png";
+	wm_top_left();
+	
+	function wm_top_left() {
+		document.getElementById("wm_image").src = src_img;
+		$('#wm-tl').addClass('disabled');
+		$('#wm-tr').removeClass('disabled');
+		$('#wm-br').removeClass('disabled');
+		$('#wm-bl').removeClass('disabled');
+		wmark.init({
+			/* config goes here */
+			"position": "top-left", // default "bottom-right"
+			"opacity": 90, // default 50
+			"className": "img-polaroid watermark", // default "watermark"
+			"path": "/img/badge-wm.png"
+		});
+	}
+	function wm_top_right() {
+		document.getElementById("wm_image").src = src_img;
+		$('#wm-tl').removeClass('disabled');
+		$('#wm-tr').addClass('disabled');
+		$('#wm-br').removeClass('disabled');
+		$('#wm-bl').removeClass('disabled');
+		wmark.init({
+			/* config goes here */
+			"position": "top-right", // default "bottom-right"
+			"opacity": 90, // default 50
+			"className": "img-polaroid watermark", // default "watermark"
+			"path": "/img/badge-wm.png"
+		});
+	}
+	function wm_bottom_right() {
+		document.getElementById("wm_image").src = src_img;
+		$('#wm-tl').removeClass('disabled');
+		$('#wm-tr').removeClass('disabled');
+		$('#wm-br').addClass('disabled');
+		$('#wm-bl').removeClass('disabled');
+		wmark.init({
+			/* config goes here */
+			"position": "bottom-right", // default "bottom-right"
+			"opacity": 90, // default 50
+			"className": "img-polaroid watermark", // default "watermark"
+			"path": "/img/badge-wm.png"
+		});
+	}
+	function wm_bottom_left() {
+		document.getElementById("wm_image").src = src_img;
+		$('#wm-tl').removeClass('disabled');
+		$('#wm-tr').removeClass('disabled');
+		$('#wm-br').removeClass('disabled');
+		$('#wm-bl').addClass('disabled');
+		wmark.init({
+			/* config goes here */
+			"position": "bottom-left", // default "bottom-right"
+			"opacity": 90, // default 50
+			"className": "img-polaroid watermark", // default "watermark"
+			"path": "/img/badge-wm.png"
+		});
+	}
 	
 </script>
 

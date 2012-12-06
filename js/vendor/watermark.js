@@ -97,14 +97,14 @@
 			x = 0,
 			y = 0;
 			if(position.indexOf("top")!=-1)
-				y = 10;
+				y = 5;
 			else
-				y = gcanvas.height-watermark.height-10;
+				y = gcanvas.height-watermark.height-5;
 			
 			if(position.indexOf("left")!=-1)
-				x = 10;
+				x = 5;
 			else
-				x = gcanvas.width-watermark.width-10;
+				x = gcanvas.width-watermark.width-5;
 
 
 			gctx.drawImage(watermark, x, y);
