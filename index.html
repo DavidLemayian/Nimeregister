@@ -98,9 +98,9 @@ menu-title: Home
 		<div class="span8 offset2" style="overflow: hidden;">
 			<div class="well" id="twitter-user" style="color: #333; padding-bottom: 50px; margin-bottom: -20px;">
 				<p style="margin-top: 20px;">
-					<img src="img/portraits/ex1.png" alt="" class="img-polaroid" style="height: 100px;" id=""/>
+					<img src="img/portraits/ex1.png" alt="" height="100px" width="100px" class="img-polaroid" id="src_image"/>
 					<i class="icon-arrow-right"></i>
-					<img src="img/portraits/ex1.png" alt="" class="img-polaroid watermark" id="wm_image"/>
+					<img src="img/portraits/ex1.png" alt="" height="150px" width="150px" class="img-polaroid watermark" id="wm_image"/>
 				</p>
 				
 				<ul class="nav nav-pills pull-right">
@@ -131,9 +131,9 @@ menu-title: Home
 							<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Twitter Connect</h3>
 							<div class="input-prepend" id="twitter-name" style="margin-bottom: 10px;">
 								<span class="add-on">@</span>
-								<input class="span6" id="prependedInput" type="text" placeholder="Username">
+								<input class="span6 tw_uname" id="prependedInput" type="text" placeholder="Username">
 							</div>
-							<a href="#" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
+							<a href="javascript:get_twitter();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
 							<a href="#" class="btn btn-success disabled">Update Profile Image <i class="icon-ok icon-white"></i></a>
 						</div>
 						<div class="item">
@@ -254,7 +254,7 @@ menu-title: Home
 	<hr />
 	<h2>Map</h2>
 	
-	<iframe src="http://vote.iebc.or.ke/gadget/" width="100%" height="552" id="iebc-iframe"></iframe>
+	<!--<iframe src="http://vote.iebc.or.ke/gadget/" width="100%" height="552" id="iebc-iframe"></iframe>-->
 	
 </div>
 
@@ -340,21 +340,6 @@ menu-title: Home
 <!-- Badge Watermark -->
 <script type="text/javascript" src="js/vendor/watermark.js"></script>
 <script type="text/javascript">
-//	var load = false;
-//	window.onload = function(){
-//		if(!load) {
-//			wmark.init({
-//				/* config goes here */
-//				"position": "top-left", // default "bottom-right"
-//				"opacity": 90, // default 50
-//				"className": "img-polaroid watermark", // default "watermark"
-//				"path": "/img/badge-wm.png"
-//			});
-//			
-//			load = true;
-//		}
-//	}
-	
 	var src_img = "/img/portraits/ex1.png";
 	wm_top_left();
 	
@@ -413,6 +398,51 @@ menu-title: Home
 			"className": "img-polaroid watermark", // default "watermark"
 			"path": "/img/badge-wm.png"
 		});
+	}
+	
+	function get_twitter() {
+		var api_url = "http://api.twitter.com/1/users/show.json?screen_name=";
+		var screen_name = $('.span6.tw_uname').val();
+		src_img = api_url + screen_name;
+		
+		$.ajax({
+		
+		    url : src_img,
+		    dataType : "jsonp",
+		    success : function(data)
+		    {
+		        //document.getElementById("src_image").src = data.profile_image_url;
+		        loadTwitterProfPic(data.profile_image_url);
+		        //src_img = data.profile_image_url;
+		        //wm_top_left();
+		    },
+		    error : function()
+		    {
+		        alert("Failure!");
+		    },
+		
+		});
+	}
+	
+	function loadTwitterProfPic(img_url) {
+		$.ajax({
+		
+		    url : img_url,
+		    //dataType : "jsonp",
+		    accepts : "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+		    success : function(data)
+		    {
+		    	src_img = data;
+		        document.getElementById("src_image").src = "data:image/jpg;base64,"+data;
+		        //wm_top_left();
+		    },
+		    error : function()
+		    {
+		        alert("Failure!");
+		    },
+		
+		});
+		
 	}
 	
 </script>
