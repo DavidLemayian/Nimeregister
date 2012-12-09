@@ -38,8 +38,6 @@
 					}
 				else
 					applyTransparency();
-				
-
 			}else{
 				applyWatermarks();
 			}
@@ -86,11 +84,13 @@
 			initWatermark();
 		}
 		setCanvasSize = function(w, h){
-			gcanvas.width = w;
+			gcanvas.width = 150;
 			gcanvas.height = h;
 		},
 		applyWatermark = function(img){
-			gcanvas.width = img.width || img.offsetWidth;
+//			gcanvas.width = img.width || img.offsetWidth;
+//			gcanvas.height = img.height || img.offsetHeight;
+			gcanvas.width = 150;
 			gcanvas.height = img.height || img.offsetHeight;
 			gctx.drawImage(img, 0, 0);
 			var position = watermarkPosition,

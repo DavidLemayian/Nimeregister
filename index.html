@@ -100,7 +100,7 @@ menu-title: Home
 				<p style="margin-top: 20px;">
 					<img src="img/portraits/ex1.png" alt="" height="100px" width="100px" class="img-polaroid" id="src_image"/>
 					<i class="icon-arrow-right"></i>
-					<img src="img/portraits/ex1.png" alt="" height="150px" width="150px" class="img-polaroid watermark" id="wm_image"/>
+					<img src="img/portraits/ex1.png" alt="" height="auto" width="150px" class="img-polaroid watermark" id="wm_image"/>
 				</p>
 				
 				<ul class="nav nav-pills pull-right">
@@ -134,16 +134,16 @@ menu-title: Home
 								<input class="span6 tw_uname" id="prependedInput" type="text" placeholder="Username">
 							</div>
 							<a href="javascript:get_twitter();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
-							<a href="#" class="btn btn-success disabled">Update Profile Image <i class="icon-ok icon-white"></i></a>
+							<a href="#" class="btn btn-success disabled">Download Profile Image <i class="icon-ok icon-white"></i></a>
 						</div>
 						<div class="item">
 							<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Facebook Connect</h3>
 							<div class="input-prepend" id="fb-name" style="margin-bottom: 10px;">
 								<span class="add-on">fb.com/</span>
-								<input class="span6" id="prependedInput" type="text" placeholder="Username">
+								<input class="span6 fb_uname" id="prependedInput" type="text" placeholder="Username">
 							</div>
-							<a href="#" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
-							<a href="#" class="btn btn-success disabled">Update Profile Image <i class="icon-ok icon-white"></i></a>
+							<a href="javascript:get_facebook();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
+							<a href="#" class="btn btn-success disabled">Download Profile Image <i class="icon-ok icon-white"></i></a>
 						</div>
 					</div>
 				</div>
@@ -298,7 +298,9 @@ menu-title: Home
 </td></tr></table>
 
 -->
-
+<form id="invisible_form" action="http://localhost:8888/nime/imgdown.php" method="post" target="_blank">
+  <input id="new_window_parameter_1" name="img_dwn" type="hidden" value="default">
+</form>
 
 <!-- Scripts -->
 
@@ -411,10 +413,13 @@ menu-title: Home
 		    dataType : "jsonp",
 		    success : function(data)
 		    {
-		        //document.getElementById("src_image").src = data.profile_image_url;
-		        loadTwitterProfPic(data.profile_image_url);
-		        //src_img = data.profile_image_url;
-		        //wm_top_left();
+		        loadProfPic( "http://nimeregister.appspot.com/imgconv?img_url="+data.profile_image_url);
+//				loadTwitterProfPic2(data.profile_image_url);
+//				document.getElementById("src_image").src = getBase64Image(data.profile_image_url);
+				
+//				document.getElementById("src_image").src = "http://nimeregister.appspot.com/?img_url="+data.profile_image_url;
+//		        src_img = "http://nimeregister.appspot.com/?img_url="+data.profile_image_url;
+//		        wm_top_left();
 		    },
 		    error : function()
 		    {
@@ -424,17 +429,43 @@ menu-title: Home
 		});
 	}
 	
-	function loadTwitterProfPic(img_url) {
+	function get_facebook() {
+		document.getElementById("src_image").src = "img/ajax-100.gif";
+		var api_url_1 = "http://graph.facebook.com/";
+		var api_url_2 = "/picture?type=large";
+		var screen_name = $('.span6.fb_uname').val();
+		//src_img = "http://nimeregister.appspot.com/imgconv?img_url="+api_url_1 + screen_name + api_url_2;
+		src_img = "http://localhost:8888/nime/imgconv.php?img_url="+api_url_1 + screen_name + api_url_2;
+		
+		$.ajax({
+		
+		    url : src_img,
+		    success : function(data)
+		    {
+		        src_img = "data:image/jpg;base64,"+data;
+		        document.getElementById("src_image").src = src_img;
+		        wm_top_left();
+		    },
+		    error : function()
+		    {
+		    	src_img = "/img/portraits/ex1.png";
+		    	document.getElementById("src_image").src = src_img;
+		    	wm_top_left();
+		        alert("Huh? What?\nSomething seems to have gone wrong. Please check that the username is correct and try again.");
+		    },
+		
+		});
+	}
+	
+	function loadProfPic(img_url) {
 		$.ajax({
 		
 		    url : img_url,
-		    //dataType : "jsonp",
-		    accepts : "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 		    success : function(data)
 		    {
-		    	src_img = data;
-		        document.getElementById("src_image").src = "data:image/jpg;base64,"+data;
-		        //wm_top_left();
+		    	src_img = "data:image/jpg;base64,"+data;
+		        document.getElementById("src_image").src = src_img;
+		        wm_top_left();
 		    },
 		    error : function()
 		    {
@@ -445,6 +476,58 @@ menu-title: Home
 		
 	}
 	
+	function loadTwitterProfPic2(img_url) {
+		var xmlhttp;
+		if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				document.getElementById("src_image").src = "data:image/jpg;base64,"+xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET",img_url+"?callback=myFunk",true);
+		xmlhttp.setRequestHeader("Accept","*/*");
+		xmlhttp.setRequestHeader("Host","a0.twimg.com");
+		xmlhttp.send();
+//		document.getElementById("call_back").src = img_url+"?callback=myFunk";
+	}
+	
+	function getBase64Image(img) {
+	    // Create an empty canvas element
+	    var canvas = document.createElement("canvas");
+	    canvas.width = img.width;
+	    canvas.height = img.height;
+	
+	    // Copy the image contents to the canvas
+	    var ctx = canvas.getContext("2d");
+	    ctx.drawImage(img, 0, 0);
+	
+	    // Get the data-URL formatted image
+	    // Firefox supports PNG and JPEG. You could check img.src to
+	    // guess the original format, but be aware the using "image/jpg"
+	    // will re-encode the image.
+	    var dataURL = canvas.toDataURL("image/jpg");
+	
+	    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+	}
+	
+	function downloadProfilePic() {
+		//$("body").append("<iframe src='http://localhost:8888/nime/imgdown.php?imgdwn=" + document.getElementById("wm_image").src + "' style='display: none;' ></iframe>");
+//		document.getElementById('wm_image').contentWindow.document.execCommand('saveas', null ,'Lema');
+		//document.getElementById('wm_image').
+		$('#new_window_parameter_1').val(document.getElementById("wm_image").src);
+		$('#invisible_form').submit();
+	}
+	
+</script>
+<script id="call_back" src=""></script>
+<script type="text/javascript">
+	function myFunk(data) {
+		document.getElementById("src_image").src = "data:image/jpg;base64,"+data;
+	}
 </script>
 
 <!-- Badge carousel -->

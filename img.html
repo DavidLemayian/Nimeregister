@@ -1,0 +1,14 @@
+<img id="the_img" src=""/>
+<script type="text/javascript">
+	function getUrlVars() {
+	    var vars = {};
+	    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+	        vars[key] = value;
+	    });
+	    return vars;
+	}
+	
+	var img_url = getUrlVars()["img_url"];
+	document.getElementById('the_img').src = img_url;
+</script>
+
