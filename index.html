@@ -72,6 +72,7 @@ menu-title: Home
 			<div class="jumbotron" id="jumbotron" style="margin-bottom: 0; margin-top: 20px;">
 				<h1>We Have a Voice!</h1>
 				<p class="lead">Update your profile picture with the Nimeregister badge in two easy clicks and show that you have a voice!</p>
+				<a class="btn btn-large btn-inverse" href="#" id="badgelink" onclick="$('#badge').scrollTop();"><img src="img/badge-wm.png" alt="" /> Get Your Profile Badge</a>
 			</div>
 		</div>
 		
@@ -88,6 +89,7 @@ menu-title: Home
 </div>
 
 </div>
+<a name="badge" id="badge"></a>
 <div style="background: #232323; padding: 30px 0 0; color: #fff;">
 <div class="container-narrow">
 <div style="text-align: center;">
@@ -264,10 +266,10 @@ menu-title: Home
 		</table>
 	</div>
 	
-	<hr />
+	<!--<hr />
 	<h2>Map</h2>
 	
-	<!--<iframe src="http://vote.iebc.or.ke/gadget/" width="100%" height="552" id="iebc-iframe"></iframe>-->
+	<iframe src="http://vote.iebc.or.ke/gadget/" width="100%" height="552" id="iebc-iframe"></iframe>-->
 	
 </div>
 
@@ -311,6 +313,7 @@ menu-title: Home
 </td></tr></table>
 
 -->
+
 <form id="invisible_form" action="http://nimeregister.on.co.ke/imgdown.php" method="post" target="_blank">
   <input id="new_window_parameter_1" name="img_dwn" type="hidden" value="default">
 </form>
@@ -417,8 +420,8 @@ menu-title: Home
 	
 	function get_twitter() {
 		document.getElementById("src_image").src = "img/ajax-100.gif";
-		var api_url_1 = "http://api.twitter.com/1/users/profile_image/";
-		var api_url_2 = "?size=bigger";
+		var api_url_1 = '"http://api.twitter.com/1/users/profile_image/';
+		var api_url_2 = '?size=bigger"';
 		var screen_name = $('.span6.tw_uname').val();
 		//src_img = "http://nimeregister.appspot.com/imgconv?img_url="+api_url_1 + screen_name + api_url_2;
 		src_img = "http://nimeregister.on.co.ke/imgconvt.php?username=" + screen_name;
@@ -445,11 +448,9 @@ menu-title: Home
 	
 	function get_facebook() {
 		document.getElementById("src_image").src = "img/ajax-100.gif";
-		var api_url_1 = "http://graph.facebook.com/";
-		var api_url_2 = "/picture?type=large";
 		var screen_name = $('.span6.fb_uname').val();
 		//src_img = "http://nimeregister.appspot.com/imgconv?img_url="+api_url_1 + screen_name + api_url_2;
-		src_img = "http://nimeregister.on.co.ke/imgconv.php?img_url="+api_url_1 + screen_name + api_url_2;
+		src_img = "http://nimeregister.on.co.ke/imgconv.php?username=" + screen_name;
 		
 		$.ajax({
 		
