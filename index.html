@@ -298,7 +298,7 @@ menu-title: Home
 </td></tr></table>
 
 -->
-<form id="invisible_form" action="http://localhost:8888/nime/imgdown.php" method="post" target="_blank">
+<form id="invisible_form" action="http://nimeregister.on.co.ke/imgdown.php" method="post" target="_blank">
   <input id="new_window_parameter_1" name="img_dwn" type="hidden" value="default">
 </form>
 
@@ -354,7 +354,7 @@ menu-title: Home
 		wmark.init({
 			/* config goes here */
 			"position": "top-left", // default "bottom-right"
-			"opacity": 90, // default 50
+			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
 			"path": "/img/badge-wm.png"
 		});
@@ -368,7 +368,7 @@ menu-title: Home
 		wmark.init({
 			/* config goes here */
 			"position": "top-right", // default "bottom-right"
-			"opacity": 90, // default 50
+			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
 			"path": "/img/badge-wm.png"
 		});
@@ -382,7 +382,7 @@ menu-title: Home
 		wmark.init({
 			/* config goes here */
 			"position": "bottom-right", // default "bottom-right"
-			"opacity": 90, // default 50
+			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
 			"path": "/img/badge-wm.png"
 		});
@@ -396,34 +396,35 @@ menu-title: Home
 		wmark.init({
 			/* config goes here */
 			"position": "bottom-left", // default "bottom-right"
-			"opacity": 90, // default 50
+			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
 			"path": "/img/badge-wm.png"
 		});
 	}
 	
 	function get_twitter() {
-		var api_url = "http://api.twitter.com/1/users/show.json?screen_name=";
+		document.getElementById("src_image").src = "img/ajax-100.gif";
+		var api_url_1 = "http://api.twitter.com/1/users/profile_image/";
+		var api_url_2 = "?size=bigger";
 		var screen_name = $('.span6.tw_uname').val();
-		src_img = api_url + screen_name;
+		//src_img = "http://nimeregister.appspot.com/imgconv?img_url="+api_url_1 + screen_name + api_url_2;
+		src_img = "http://nimeregister.on.co.ke/nime/imgconvt.php?username=" + screen_name;
 		
 		$.ajax({
 		
 		    url : src_img,
-		    dataType : "jsonp",
 		    success : function(data)
 		    {
-		        loadProfPic( "http://nimeregister.appspot.com/imgconv?img_url="+data.profile_image_url);
-//				loadTwitterProfPic2(data.profile_image_url);
-//				document.getElementById("src_image").src = getBase64Image(data.profile_image_url);
-				
-//				document.getElementById("src_image").src = "http://nimeregister.appspot.com/?img_url="+data.profile_image_url;
-//		        src_img = "http://nimeregister.appspot.com/?img_url="+data.profile_image_url;
-//		        wm_top_left();
+		        src_img = "data:image/jpg;base64,"+data;
+		        document.getElementById("src_image").src = src_img;
+		        wm_top_left();
 		    },
 		    error : function()
 		    {
-		        alert("Failure!");
+		        src_img = "/img/portraits/ex1.png";
+		        document.getElementById("src_image").src = src_img;
+		        wm_top_left();
+		        alert("Something seems to have gone wrong. Please check that the username is correct and try again.");
 		    },
 		
 		});
@@ -435,7 +436,7 @@ menu-title: Home
 		var api_url_2 = "/picture?type=large";
 		var screen_name = $('.span6.fb_uname').val();
 		//src_img = "http://nimeregister.appspot.com/imgconv?img_url="+api_url_1 + screen_name + api_url_2;
-		src_img = "http://localhost:8888/nime/imgconv.php?img_url="+api_url_1 + screen_name + api_url_2;
+		src_img = "http://nimeregister.on.co.ke/nime/imgconv.php?img_url="+api_url_1 + screen_name + api_url_2;
 		
 		$.ajax({
 		
@@ -451,7 +452,7 @@ menu-title: Home
 		    	src_img = "/img/portraits/ex1.png";
 		    	document.getElementById("src_image").src = src_img;
 		    	wm_top_left();
-		        alert("Huh? What?\nSomething seems to have gone wrong. Please check that the username is correct and try again.");
+		        alert("Something seems to have gone wrong. Please check that the username is correct and try again.");
 		    },
 		
 		});
@@ -476,48 +477,7 @@ menu-title: Home
 		
 	}
 	
-	function loadTwitterProfPic2(img_url) {
-		var xmlhttp;
-		if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-			xmlhttp=new XMLHttpRequest();
-		} else {// code for IE6, IE5
-			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		xmlhttp.onreadystatechange=function() {
-			if (xmlhttp.readyState==4 && xmlhttp.status==200){
-				document.getElementById("src_image").src = "data:image/jpg;base64,"+xmlhttp.responseText;
-			}
-		}
-		xmlhttp.open("GET",img_url+"?callback=myFunk",true);
-		xmlhttp.setRequestHeader("Accept","*/*");
-		xmlhttp.setRequestHeader("Host","a0.twimg.com");
-		xmlhttp.send();
-//		document.getElementById("call_back").src = img_url+"?callback=myFunk";
-	}
-	
-	function getBase64Image(img) {
-	    // Create an empty canvas element
-	    var canvas = document.createElement("canvas");
-	    canvas.width = img.width;
-	    canvas.height = img.height;
-	
-	    // Copy the image contents to the canvas
-	    var ctx = canvas.getContext("2d");
-	    ctx.drawImage(img, 0, 0);
-	
-	    // Get the data-URL formatted image
-	    // Firefox supports PNG and JPEG. You could check img.src to
-	    // guess the original format, but be aware the using "image/jpg"
-	    // will re-encode the image.
-	    var dataURL = canvas.toDataURL("image/jpg");
-	
-	    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-	}
-	
 	function downloadProfilePic() {
-		//$("body").append("<iframe src='http://localhost:8888/nime/imgdown.php?imgdwn=" + document.getElementById("wm_image").src + "' style='display: none;' ></iframe>");
-//		document.getElementById('wm_image').contentWindow.document.execCommand('saveas', null ,'Lema');
-		//document.getElementById('wm_image').
 		$('#new_window_parameter_1').val(document.getElementById("wm_image").src);
 		$('#invisible_form').submit();
 	}
