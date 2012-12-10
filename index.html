@@ -121,6 +121,10 @@ menu-title: Home
 						<img src="img/logos/fb-icon.png" alt="Fb" style="height: 25px;"/>
 						<b>Facebook</b>
 					</button>
+					<button onclick="javascript:$('#badgeCarousel').carousel(2);" class="btn btn-large">
+						<img src="img/logos/gr-icon.png" alt="Fb" style="height: 25px;"/>
+						<b>Gravatar</b>
+					</button>
 				</div>
 				
 				<hr style="width: 50%; margin: 20px auto;"/>
@@ -134,7 +138,7 @@ menu-title: Home
 								<input class="span6 tw_uname" id="prependedInput" type="text" placeholder="Username">
 							</div>
 							<a href="javascript:get_twitter();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
-							<a href="#" class="btn btn-success disabled">Download Profile Image <i class="icon-ok icon-white"></i></a>
+							<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
 						</div>
 						<div class="item">
 							<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Facebook Connect</h3>
@@ -143,7 +147,16 @@ menu-title: Home
 								<input class="span6 fb_uname" id="prependedInput" type="text" placeholder="Username">
 							</div>
 							<a href="javascript:get_facebook();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
-							<a href="#" class="btn btn-success disabled">Download Profile Image <i class="icon-ok icon-white"></i></a>
+							<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
+						</div>
+						<div class="item">
+							<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Gravatar</h3>
+							<div class="input-prepend" id="fb-name" style="margin-bottom: 10px;">
+								<span class="add-on">Email Address:</span>
+								<input class="span6 gr_uname" id="prependedInput" type="text" placeholder="john@example.com">
+							</div>
+							<a href="javascript:get_gravatar();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
+							<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
 						</div>
 					</div>
 				</div>
@@ -408,7 +421,7 @@ menu-title: Home
 		var api_url_2 = "?size=bigger";
 		var screen_name = $('.span6.tw_uname').val();
 		//src_img = "http://nimeregister.appspot.com/imgconv?img_url="+api_url_1 + screen_name + api_url_2;
-		src_img = "http://nimeregister.on.co.ke/nime/imgconvt.php?username=" + screen_name;
+		src_img = "http://nimeregister.on.co.ke/imgconvt.php?username=" + screen_name;
 		
 		$.ajax({
 		
@@ -436,7 +449,32 @@ menu-title: Home
 		var api_url_2 = "/picture?type=large";
 		var screen_name = $('.span6.fb_uname').val();
 		//src_img = "http://nimeregister.appspot.com/imgconv?img_url="+api_url_1 + screen_name + api_url_2;
-		src_img = "http://nimeregister.on.co.ke/nime/imgconv.php?img_url="+api_url_1 + screen_name + api_url_2;
+		src_img = "http://nimeregister.on.co.ke/imgconv.php?img_url="+api_url_1 + screen_name + api_url_2;
+		
+		$.ajax({
+		
+		    url : src_img,
+		    success : function(data)
+		    {
+		        src_img = "data:image/jpg;base64,"+data;
+		        document.getElementById("src_image").src = src_img;
+		        wm_top_left();
+		    },
+		    error : function()
+		    {
+		    	src_img = "/img/portraits/ex1.png";
+		    	document.getElementById("src_image").src = src_img;
+		    	wm_top_left();
+		        alert("Something seems to have gone wrong. Please check that the username is correct and try again.");
+		    },
+		
+		});
+	}
+	
+	function get_gravatar() {
+		document.getElementById("src_image").src = "img/ajax-100.gif";
+		var screen_name = $('.span6.gr_uname').val();
+		src_img = "http://nimeregister.on.co.ke/imgconvg.php?email_add=" + screen_name;
 		
 		$.ajax({
 		
