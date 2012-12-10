@@ -103,7 +103,7 @@ menu-title: Home
 				<p style="margin-top: 20px;">
 					<img src="img/portraits/ex1.png" alt="" height="100px" width="100px" class="img-polaroid" id="src_image"/>
 					<i class="icon-arrow-right"></i>
-					<img src="img/portraits/ex1.png" alt="" height="auto" width="150px" class="img-polaroid watermark" id="wm_image"/>
+					<img src="img/portraits/ex1.png" alt="" height="auto" width="180px" class="img-polaroid watermark" id="wm_image"/>
 				</p>
 				
 				<ul class="nav nav-pills pull-right">
@@ -360,7 +360,7 @@ menu-title: Home
 <script type="text/javascript" src="js/vendor/watermark.js"></script>
 <script type="text/javascript">
 	var src_img = "/img/portraits/ex1.png";
-	wm_top_left();
+	wm_top_right();
 	
 	function wm_top_left() {
 		document.getElementById("wm_image").src = src_img;
@@ -373,7 +373,7 @@ menu-title: Home
 			"position": "top-left", // default "bottom-right"
 			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
-			"path": "/img/badge-wm.png"
+			"path": "/img/badge-wm3.png"
 		});
 	}
 	function wm_top_right() {
@@ -387,7 +387,7 @@ menu-title: Home
 			"position": "top-right", // default "bottom-right"
 			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
-			"path": "/img/badge-wm.png"
+			"path": "/img/badge-wm3.png"
 		});
 	}
 	function wm_bottom_right() {
@@ -401,7 +401,7 @@ menu-title: Home
 			"position": "bottom-right", // default "bottom-right"
 			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
-			"path": "/img/badge-wm.png"
+			"path": "/img/badge-wm3.png"
 		});
 	}
 	function wm_bottom_left() {
@@ -415,7 +415,7 @@ menu-title: Home
 			"position": "bottom-left", // default "bottom-right"
 			"opacity": 100, // default 50
 			"className": "img-polaroid watermark", // default "watermark"
-			"path": "/img/badge-wm.png"
+			"path": "/img/badge-wm3.png"
 		});
 	}
 	
@@ -434,13 +434,13 @@ menu-title: Home
 		    {
 		        src_img = "data:image/jpg;base64,"+data;
 		        document.getElementById("src_image").src = src_img;
-		        wm_top_left();
+		        wm_top_right();
 		    },
 		    error : function()
 		    {
 		        src_img = "/img/portraits/ex1.png";
 		        document.getElementById("src_image").src = src_img;
-		        wm_top_left();
+		        wm_top_right();
 		        alert("Something seems to have gone wrong. Please check that the username is correct and try again.");
 		    },
 		
@@ -460,13 +460,13 @@ menu-title: Home
 		    {
 		        src_img = "data:image/jpg;base64,"+data;
 		        document.getElementById("src_image").src = src_img;
-		        wm_top_left();
+		        wm_top_right();
 		    },
 		    error : function()
 		    {
 		    	src_img = "/img/portraits/ex1.png";
 		    	document.getElementById("src_image").src = src_img;
-		    	wm_top_left();
+		    	wm_top_right();
 		        alert("Something seems to have gone wrong. Please check that the username is correct and try again.");
 		    },
 		
@@ -491,7 +491,7 @@ menu-title: Home
 		    {
 		    	src_img = "/img/portraits/ex1.png";
 		    	document.getElementById("src_image").src = src_img;
-		    	wm_top_left();
+		    	wm_top_right();
 		        alert("Something seems to have gone wrong. Please check that the username is correct and try again.");
 		    },
 		
@@ -506,7 +506,7 @@ menu-title: Home
 		    {
 		    	src_img = "data:image/jpg;base64,"+data;
 		        document.getElementById("src_image").src = src_img;
-		        wm_top_left();
+		        wm_top_right();
 		    },
 		    error : function()
 		    {
