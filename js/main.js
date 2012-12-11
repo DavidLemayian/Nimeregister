@@ -258,7 +258,14 @@ function goToByScroll(id){
         'slow');
 }
 
-$("#jumbotron > a").click(function(e) { 
+$("#findlink").click(function(e) { 
+      // Prevent a page reload when a link is pressed
+    e.preventDefault(); 
+      // Call the scroll function
+    goToByScroll($(this).attr("id"));           
+});
+
+$("#badgelink").click(function(e) { 
       // Prevent a page reload when a link is pressed
     e.preventDefault(); 
       // Call the scroll function
