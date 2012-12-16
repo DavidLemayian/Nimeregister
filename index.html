@@ -2,307 +2,99 @@
 layout: default
 title: Home
 menu-title: Home
----	
+---
 
-<div id="myCarousel" class="carousel slide" style="margin-bottom: 60px;">
-	<div class="carousel-inner">
-		
-		<div class="active item">
-			<div class="jumbotron" id="jumbotron" style="margin-bottom: 0; margin-top: 20px;">
-				<h1>We Have a Voice!</h1>
-				<p class="lead">Update your profile picture with the Nimeregister badge in two easy clicks and show that you have a voice!</p>
-				<p><img src="img/portraits/we.png" alt="We Made a Difference" /></p>
-				<a class="btn btn-large btn-inverse" href="#" id="badgelink" onclick="$('#badge').scrollTop();"><img src="img/badge-wm.png" alt="" /> Get Your Profile Badge</a>
-			</div>
-		</div>
-		
-		<!--<div class="item">
-			<div class="jumbotron" id="jumbotron" style="margin-bottom: 0; margin-top: 20px;">
-				<h1>CheckIn with</h1>
-					<a href="https://foursquare.com/nimeregister/list/iebc-voter-registration-centres" target="_blank"><img src="img/logos/fs-logo.png" alt="FourSquare"/></a>
-				<p class="lead">You can now check in at your Registration centre using FourSquare!</p>
-				<a href="https://foursquare.com/nimeregister/list/iebc-voter-registration-centres" class="btn btn-large" style="line-height: 29px; vertical-align: bottom;" target="_blank">
-					CHECK IN ON <img src="img/logos/fs-logo.png" alt="FourSquare" style="height: 30px;"/></a>
-			</div>
-		</div>-->
-	</div>
-	
-	<!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-	<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>-->
+<div id="tweets" class="tweets">
+</div>
+<div style="text-align: center; margin-top: 7px;">
+	<p class="lead" style="padding: 10px 20px 15px; color: #333; background: #fff; display: inline; border-radius: 0 0 10px 10px;">
+		<img src="img/logos/tw-icon.png" alt="" style="height: 20px; margin-top: -5px;"/> #nimeregister
+		<!--<a href="#"><i class="icon-refresh" style="margin-top: 6px;"></i></a>
+		<img src="img/spinner.gif" alt="" style="margin-top: -3px;" id=""/>-->
+	</p>
 </div>
 
-</div>
 <a name="badge" id="badge"></a>
-<div style="background: #232323; padding: 60px 0 0; color: #fff;">
-<div class="container-narrow">
-<div style="text-align: center;">
-	<h1>Nimeregister Profile Badge</h1>
-	<p class="lead">Get your Nimeregister profile badge today! It's easy.</p>
-	
-	<div class="row-fluid">
-		<div class="span8 offset2" style="overflow: hidden;">
-			<div class="well" id="twitter-user" style="color: #333; padding-bottom: 50px; margin-bottom: -20px;">
-				<p style="margin-top: 20px;">
-					<img src="img/portraits/ex1.png" alt="" height="100px" width="100px" class="img-polaroid" id="src_image"/>
-					<i class="icon-arrow-right"></i>
-					<img src="img/portraits/ex1.png" alt="" height="auto" width="180px" class="img-polaroid watermark" id="wm_image"/>
-				</p>
-				
-				<ul class="nav nav-pills pull-right">
-					<li id="wm-tl"><a href="javascript:wm_top_left();"><small>Top Left</small></a></li>
-					<li id="wm-tr"><a href="javascript:wm_top_right();"><small>Top Right</small></a></li>
-					<li id="wm-br"><a href="javascript:wm_bottom_right();"><small>Bottom Right</small></a></li>
-					<li id="wm-bl"><a href="javascript:wm_bottom_left();"><small>Bottom Left</small></a></li>
-				</ul>
-				
-				<hr style="width: 50%; margin: 20px auto;"/>
-				
-				<div class="btn-group" data-toggle="buttons-radio">
-					<button onclick="javascript:$('#badgeCarousel').carousel(0);" class="btn btn-large active">
-						<img src="img/logos/tw-icon.png" alt="Tw" style="height: 25px;"/>
-						<b>Twitter</b>
-					</button>
-					<button onclick="javascript:$('#badgeCarousel').carousel(1);" class="btn btn-large">
-						<img src="img/logos/fb-icon.png" alt="Fb" style="height: 25px;"/>
-						<b>Facebook</b>
-					</button>
-					<button onclick="javascript:$('#badgeCarousel').carousel(2);" class="btn btn-large">
-						<img src="img/logos/gr-icon.png" alt="Fb" style="height: 25px;"/>
-						<b>Gravatar</b>
-					</button>
-				</div>
-				
-				<hr style="width: 50%; margin: 20px auto;"/>
-				
-				<div id="badgeCarousel" class="carousel slide">
-					<div class="carousel-inner">
-						<div class="active item">
-							<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Twitter Connect</h3>
-							<div class="input-prepend" id="twitter-name" style="margin-bottom: 10px;">
-								<span class="add-on">@</span>
-								<input class="span6 tw_uname" id="prependedInput" type="text" placeholder="Username">
+<div style="padding: 40px 0 0; text-align: center;">
+	<div class="container-narrow">
+		<h1>Nimeregister Profile Badge</h1>
+		<p class="lead">Get your Nimeregister profile badge today! It's easy.</p>
+		
+		<div class="row-fluid" style="margin-top: 40px;">
+			<div class="span10 offset1" style="overflow: hidden;">
+				<div class="well" id="twitter-user" style="color: #333; padding-bottom: 50px; margin-bottom: -20px;">
+					<p style="margin-top: 20px;">
+					
+						<!-- Watermark Image -->
+						<img src="img/portraits/ex1.png" alt="" height="100px" width="100px" class="img-polaroid" id="src_image" style="margin: 5px 0;" />
+						<i class="icon-arrow-right"></i>
+						<img src="img/portraits/ex1.png" alt="" height="auto" width="180px" class="img-polaroid watermark" id="wm_image" />
+						
+					</p>
+					
+					<ul class="nav nav-pills" style="margin: 10px auto 0; display: inline-block;">
+						<li id="wm-tl"><a href="javascript:wm_top_left();"><small>Top Left</small></a></li>
+						<li id="wm-tr"><a href="javascript:wm_top_right();"><small>Top Right</small></a></li>
+						<li id="wm-br"><a href="javascript:wm_bottom_right();"><small>Bottom Right</small></a></li>
+						<li id="wm-bl"><a href="javascript:wm_bottom_left();"><small>Bottom Left</small></a></li>
+					</ul>
+					
+					<hr style="width: 50%; margin: 20px auto;"/>
+					
+					<div class="btn-group" data-toggle="buttons-radio">
+						<button onclick="javascript:$('#badgeCarousel').carousel(0);" class="btn btn-large active">
+							<img src="img/logos/tw-icon.png" alt="Tw" style="height: 25px;"/>
+							<b>Twitter</b>
+						</button>
+						<button onclick="javascript:$('#badgeCarousel').carousel(1);" class="btn btn-large">
+							<img src="img/logos/fb-icon.png" alt="Fb" style="height: 25px;"/>
+							<b>Facebook</b>
+						</button>
+						<button onclick="javascript:$('#badgeCarousel').carousel(2);" class="btn btn-large">
+							<img src="img/logos/gr-icon.png" alt="Fb" style="height: 25px;"/>
+							<b>Gravatar</b>
+						</button>
+					</div>
+					
+					<hr style="width: 50%; margin: 20px auto;"/>
+					
+					<div id="badgeCarousel" class="carousel slide">
+						<div class="carousel-inner">
+							<div class="active item">
+								<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Twitter Connect</h3>
+								<div class="input-prepend" id="twitter-name" style="margin-bottom: 10px;">
+									<span class="add-on">@</span>
+									<input class="span6 tw_uname" id="prependedInput" type="text" placeholder="Username">
+								</div>
+								<a href="javascript:get_twitter();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
+								<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
 							</div>
-							<a href="javascript:get_twitter();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
-							<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
-						</div>
-						<div class="item">
-							<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Facebook Connect</h3>
-							<div class="input-prepend" id="fb-name" style="margin-bottom: 10px;">
-								<span class="add-on">fb.com/</span>
-								<input class="span6 fb_uname" id="prependedInput" type="text" placeholder="Username">
+							<div class="item">
+								<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Facebook Connect</h3>
+								<div class="input-prepend" id="fb-name" style="margin-bottom: 10px;">
+									<span class="add-on">fb.com/</span>
+									<input class="span6 fb_uname" id="prependedInput" type="text" placeholder="Username">
+								</div>
+								<a href="javascript:get_facebook();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
+								<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
 							</div>
-							<a href="javascript:get_facebook();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
-							<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
-						</div>
-						<div class="item">
-							<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Gravatar</h3>
-							<div class="input-prepend" id="fb-name" style="margin-bottom: 10px;">
-								<span class="add-on">Email Address:</span>
-								<input class="span6 gr_uname" id="prependedInput" type="text" placeholder="john@example.com">
+							<div class="item">
+								<h3 style="line-height:100%; margin-top: 0; margin-bottom: 15px;">Gravatar</h3>
+								<div class="input-prepend" id="fb-name" style="margin-bottom: 10px;">
+									<span class="add-on">Email Address:</span>
+									<input class="span6 gr_uname" id="prependedInput" type="text" placeholder="john@example.com">
+								</div>
+								<a href="javascript:get_gravatar();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
+								<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
 							</div>
-							<a href="javascript:get_gravatar();" class="btn btn-large btn-info"><i class="icon-user icon-white"></i> Get Your Profile Image</a><br />
-							<a href="javascript:downloadProfilePic();" class="btn btn-success">Download Profile Image <i class="icon-ok icon-white"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-</div>
-</div>
-</div>
-
-<div class="container-narrow">
-
-<div class="social-icons" style="margin-top: 30px;">
-	<h3>Share Nimeregister</h3>
-	<p> 
-	<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | GotToVote! Ke"
-	onClick="window.open('http://twitter.com/home?status=Kura%20yangu,%20sauti%20yangu.%20Register%20as%20a%20voter%20today%20and%20get%20your%20stripes%20on%20@nimeregister!%20http://nimeregister.com%20%23nimeregister.','Nimeregister','width=550,height=270');"><img src="img/social/twitter.png" alt="Share on Twitter" /></a>
-	<a href="javascript:void(0);" name="Share_FB" title="Share on FB | Nimeregister"
-	onClick='window.open("http://www.facebook.com/sharer.php?u=http%3A%2F%2Fnimeregister.com","GotToVote","width=550,height=270");'><img src="img/social/facebook.png" alt="Share on Facebook" /></a>
-	<a href="https://plus.google.com/share?url=nimeregister.com" onclick="javascript:window.open(this.href,
-	  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="img/social/googleplus.png" alt="Share on Google Plus" /></a>
-	</p>
-</div>
-
-<hr />
-
-<a name="find" id="find"></a>
-
-<div id="find-reg" style="text-align: center;">
-	<h1>Find Your Registration Centre!</h1>
-
-	<div class="row-fluid marketing" style="margin-top: 20px; margin-bottom: 10px;">
-		<div class="span4">
-			<div>
-				<p class="lead">County</p>
-				<select id="county_select">
-					<option value="0">Select a County</option>
-					<option value="30">Baringo</option>
-					<option value="36">Bomet</option>
-					<option value="39">Bungoma</option>
-					<option value="40">Busia</option>
-					<option value="28">Elgeyo/Marakwet</option>
-					<option value="14">Embu</option>
-					<option value="7">Garissa</option>
-					<option value="43">Homa Bay</option>
-					<option value="11">Isiolo</option>
-					<option value="34">Kajiado</option>
-					<option value="37">Kakamega</option>
-					<option value="35">Kericho</option>
-					<option value="22">Kiambu</option>
-					<option value="3">Kilifi</option>
-					<option value="20">Kirinyaga</option>
-					<option value="45">Kisii</option>
-					<option value="42">Kisumu</option>
-					<option value="15">Kitui</option>
-					<option value="2">Kwale</option>
-					<option value="31">Laikipia</option>
-					<option value="5">Lamu</option>
-					<option value="16">Machakos</option>
-					<option value="17">Makueni</option>
-					<option value="9">Mandera</option>
-					<option value="10">Marsabit</option>
-					<option value="12">Meru</option>
-					<option value="44">Migori</option>
-					<option value="1">Mombasa</option>
-					<option value="21">Murang'a</option>
-					<option value="47">Nairobi</option>
-					<option value="32">Nakuru</option>
-					<option value="29">Nandi</option>
-					<option value="33">Narok</option>
-					<option value="46">Nyamira</option>
-					<option value="18">Nyandarua</option>
-					<option value="19">Nyeri</option>
-					<option value="25">Samburu</option>
-					<option value="41">Siaya</option>
-					<option value="6">Taita Taveta</option>
-					<option value="4">Tana River</option>
-					<option value="13">Tharaka - Nithi</option>
-					<option value="26">Trans Nzoia</option>
-					<option value="23">Turkana</option>
-					<option value="27">Uasin Gishu</option>
-					<option value="38">Vihiga</option>
-					<option value="8">Wajir</option>
-					<option value="24">West Pokot</option>
-				</select>
-			</div>
-		</div>
-		<div class="span4">
-			<div style="text-align: center;">
-				<p class="lead">Constituency</p>
-				<select id="const_select">
-					<option value="0">- Select a County First -</option>
-				</select>
-			</div>
-		</div>
-		<div class="span4">
-			<div style="text-align: center;">
-				<p class="lead">Ward</p>
-				<select id="ward_select">
-					<option value="0">- Select a County First -</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	
-	<div id="found-reg" style="display: none;">
-		<table class="table table-hover" style="margin-bottom: 0;">
-			<thead><tr><td>
-				<h4>Registration Centres in <span id="header-name"> County</span></h4>
-			</td></tr></thead>
-			<tbody id="reg-centres">
-				<tr><td>
-					<p><img src="img/spinner.gif" alt="" />
-						Finding registration centres...
-					</p>
-				</td></tr>
-			</tbody>
-		</table>
-	</div>
-	
-	<hr />
-	
-	<h2>Map <small><a href="http://vote.iebc.or.ke" target="_blank">IEBC</a></small></h2>
-	
-	<p id="iebcMap"><a href="javascript:showMap();" class="btn btn-large" style="margin-top: 10px;">
-		<i class="icon-globe" style="margin-top: 4px;"></i>
-		Show Map <i class="icon-globe" style="margin-top: 4px;"></i></a></p>
-	
-</div>
-
-<hr />
-
-<div class="row-fluid marketing">
-	<div class="span6">
-		<h4>What is voter registration?</h4>
-		<p>Voter registration is the process of entering details of qualified persons including their National Identity Card or Passport numbers in a register or list of voters.</p>
 		
-		<h4>Who qualifies to register as a voter?</h4>
-		<p>In order to qualify as a voter, one must:</p>
-		<ul>
-			<li><p>Be a Kenyan citizen</p></li>
-			<li><p>Be 18 years old and above</p></li>
-		</ul>
-		
-		<h4>Can a person transfer as a voter to another registration centre or constituency?</h4>
-		<p>YES! A person may transfer as a voter to another registration centre within the constituency or outside the constituency. The person is required to present himself/ herself to the particular registration centre or constituency if he/she meets the requirements.</p>
-		
-	</div>
-	<div class="span6">
-		<h4>Why register as a voter?</h4>
-		<p>Registering as a voter will give you the opportunity to elect leaders for your country at the national and county levels. You can only participate in elections if you are a registered voter. It is your right and duty as a responsible citizen to elect your leaders.</p>
-		
-		<h4>Where can you register as a voter?</h4>
-		<p>You can register as a voter at any designated voter registration within the county assembly ward or the constituency where you wish to vote.</p>
-		
-		<h4>What is the role of a voter in ensuring the register is accurate?</h4>
-		<p>It is the responsibility of each registered voter to inspect the register and inform the registration officers of any corrections they wish made in the register of voters on their particulars.</p>
-	</div>
-</div>
-
-<!--
-<a class="btn btn-large btn-success" href="#">Update Profile Pic</a>
-<a class="btn btn-large btn-danger" href="#">+1 To Get Counted</a>
--->
-<!--
-<hr />
-
-<table align="center" style="text-align: center;"><tr>
-	<td><h1></h1></td>
-	<td><div id="flip-counter" class="flip-counter" style="display: inline-block;"></div></td>
-	
-</tr></table>
-
-
-
-
-<a name="find" id="find"></a>
-<hr />
-
-
-<hr style="margin-top: 90px;"/>
-
-<div class="social-icons">
-	<h3>Share GotToVote.co.ke</h3>
-	<p> 
-	<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | GotToVote! Ke"
-	onClick='window.open("http://twitter.com/home?status=Register%20as%20a%20voter%20today!%20Find%20a%20registration%20center%20on%20http://gottovote.co.ke%20%23GotToVote%20","GotToVote","width=550,height=270");'><img src="img/social/twitter.png" alt="Share on Twitter" /></a>
-	<a href="javascript:void(0);" name="Share_FB" title="Share on FB | GotToVote! Ke"
-	onClick='window.open("http://www.facebook.com/sharer.php?u=http%3A%2F%2Fgottovote.co.ke%2F&t=Register+as+a+voter+today!+Find+a+registration+center+on+GotToVote.","GotToVote","width=550,height=270");'><img src="img/social/facebook.png" alt="Share on Facebook" /></a>
-	<a href="https://plus.google.com/share?url=gottovote.co.ke" onclick="javascript:window.open(this.href,
-	  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="img/social/googleplus.png" alt="Share on Google Plus" /></a>
-	</p>
-</div>
-
-<table align="center" style="text-align: center; width: 80%;"><tr><td>
-	<a class="twitter-timeline" href="https://twitter.com/GotToVote" data-widget-id="275261595490328577">Tweets by @GotToVote</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</td></tr></table>
-
--->
+	</div> <!-- /container-narrow -->
+</div> <!-- /badge -->
 
 <form id="invisible_form" action="http://nimeregister.on.co.ke/imgdown.php" method="post" target="_blank">
   <input id="new_window_parameter_1" name="img_dwn" type="hidden" value="default">
@@ -310,46 +102,17 @@ menu-title: Home
 
 <!-- Scripts -->
 
+<!-- Get Twitter profiles with #nimeregister -->
+<script src="js/main.js" type="text/javascript"></script>
 <script type="text/javascript">
-	$('#myCarousel').carousel('cycle');
+
 </script>
 
-<!-- Countdown -->
-<script type="text/javascript" src="js/jbclock.js"></script>
-<script type="text/javascript">
-	var startD = Date.parse("Nov 19 2012 08:00:00 GMT+0300 (EAT)")/1000;
-	var endD = Date.parse("Dec 18 2012 18:00:00 GMT+0300 (EAT)")/1000;
-	
-	var nowD = Date.parse(new Date())/1000;
-	var testD = new Date();
-	
-	$(document).ready(function(){
-	    JBCountDown({
-	        secondsColor : "#FFF",
-	        secondsGlow  : "none",
-	        
-	        minutesColor : "#39b54a",
-	        minutesGlow  : "none",
-	        
-	        hoursColor   : "#ec3535",
-	        hoursGlow    : "none",
-	        
-	        daysColor    : "#333",
-	        daysGlow     : "none",
-	        
-	        startDate   : startD,
-	        endDate     : endD,
-	        now         : nowD,
-	        seconds     : "00"
-	    });
-	});
-</script>
 
 <!-- Badge Watermark -->
 <script type="text/javascript" src="js/vendor/watermark.js"></script>
 <script type="text/javascript">
 	var src_img = "/img/portraits/ex1.png";
-	wm_top_right();
 	
 	function wm_top_left() {
 		document.getElementById("wm_image").src = src_img;
@@ -407,6 +170,10 @@ menu-title: Home
 			"path": "/img/badge-wm3.png"
 		});
 	}
+	
+	wm_top_right();
+	
+	// Social grab.
 	
 	function get_twitter() {
 		document.getElementById("src_image").src = "img/ajax-100.gif";
@@ -518,42 +285,6 @@ menu-title: Home
 		document.getElementById("src_image").src = "data:image/jpg;base64,"+data;
 	}
 </script>
-
-<!-- Badge carousel -->
-<script type="text/javascript">
-	$('#badgeCarousel').carousel({
-	  interval: false
-	})
-	/*$('#badgeCarousel').bind('slid', function() {
-	    $('#badgeCarousel').carousel('pause');
-	});​*/
-</script>
-
-
-<!-- Find Registration Centres -->
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript">
- 	function showMap() {
- 		$('#iebcMap').fadeOut('slow');
- 		$('#iebcMap').html('<iframe src="http://vote.iebc.or.ke/gadget/" width="100%" height="552" frameborder="0" scrolling="No" rightmargin="0" bottommargin="0" topmargin="0" leftmargin="0" marginwidth="0" allowtransparency="allowtransparency" border="0" marginheight="0"></iframe>');
- 		$('#iebcMap').fadeIn('slow');
- 	}
-</script>
-
-
-
-<!-- Flip Counter for +1s 
-<script type="text/javascript" src="js/flipcounter.js"></script>
-<script type="text/javascript">
-	//<![CDATA[
-
-	$(function(){
-		// Initialize a new counter
-		var myCounter = new flipCounter('flip-counter', {value:10000, auto:false});
-	});
-
-	//]]>
-</script>-->
 
 
 
