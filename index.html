@@ -111,27 +111,18 @@ menu-title: Home
 <!-- Get Twitter profiles with #nimeregister -->
 <script src="js/main.js" type="text/javascript"></script>
 <script type="text/javascript">
-	function goToByScroll(id){
-	      // Remove "link" from the ID
-	    id = id.replace("link", "");
-	      // Scroll
-	    $('html,body').animate({
-	        scrollTop: $("#"+id).offset().top},
-	        'slow');
-	}
-	
-	$("#badgelink").click(function(e) { 
-	      // Prevent a page reload when a link is pressed
-	    e.preventDefault(); 
-	      // Call the scroll function
-	    goToByScroll($(this).attr("id"));           
-	});
+
 </script>
 
 
 <!-- Badge Watermark -->
 <script type="text/javascript" src="js/vendor/watermark.js"></script>
 <script type="text/javascript">
+
+	 $('#badgeCarousel').carousel({
+	     interval: false
+	 });
+	
 	var src_img = "/img/portraits/ex1.png";
 	
 	function wm_top_left() {
@@ -306,7 +297,7 @@ menu-title: Home
 	}
 </script>
 
-<!-- Nice scrolling -->
+<!-- Nice scrolling page -->
 <script type="text/javascript">
 	function goToByScroll(id){
 	      // Remove "link" from the ID
