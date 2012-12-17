@@ -4,7 +4,10 @@ function getTweets() {
 	var screenWidth = window.innerWidth;
 	var tweets_url = '';
 	var count = 0;
+	var page_no = 0;
 	var img_width = '';
+	
+	var theTweets = new Array();
 	
 	if (screenWidth > 767) {
 		count = 48;
