@@ -33,6 +33,7 @@ function getTweets() {
 	        	to_tweetsid += 'rel="tooltip" data-placement="bottom" data-original-title="'+ tweet_txt +'"/>';
 	        }
 	        $('#tweets').html(to_tweetsid);
+	        $("[rel=tooltip]").tooltip();
 	    },
 	    error : function()
 	    {
@@ -43,7 +44,3 @@ function getTweets() {
 }
 
 getTweets();
-
-window.onload=function(){
-	$("[rel=tooltip]").tooltip();
-};
