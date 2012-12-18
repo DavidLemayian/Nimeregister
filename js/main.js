@@ -44,3 +44,4 @@ function getTweets() {
 }
 
 getTweets();
+$("[rel=tooltip]").tooltip();
