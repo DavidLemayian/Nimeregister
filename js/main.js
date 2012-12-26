@@ -24,7 +24,12 @@ function getTweets() {
 	    url : tweets_url,
 	    dataType : 'jsonp',
 	    success : function(data)
+	    
 	    {
+	    	if (data['results'].length < count){
+	    		count = data['results'].length;
+	    	}
+	    	
 	        var to_tweetsid = '';
 	        for (var i = 0; i < count; i++) {
 	        	var img_url = data['results'][i]['profile_image_url'].replace("_normal","_bigger");
