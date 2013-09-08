@@ -9,12 +9,12 @@
         <title>{{ site.title }} | {{ page.title }}</title>
         <meta name="description" content="{{site.claim}}">
         <meta name="viewport" content="width=device-width">
-        <meta property="og:image" content="tick.png"/>
+        <meta property="og:image" content="http://nimeregister.co.ke/badge1.png"/>
 
         <!-- Add the following three tags inside head. -->
-        <meta itemprop="name" content="Nimeregister! by GotToVote">
-        <meta itemprop="description" content="Register as a voter today and get counted on #Nimeregister! #GotToVote.">
-        <meta itemprop="image" content="http://nimeregister.co.ke/tick.png">
+        <meta itemprop="name" content="Nimeregister!">
+        <meta itemprop="description" content="Join us! Find your nearest registration centre and spread the word. Mimi Nimeregister, je wewe? Kura Yangu, Sauti Yangu.">
+        <meta itemprop="image" content="http://nimeregister.co.ke/badge1.png">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		
@@ -23,12 +23,12 @@
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+<!--        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">-->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/counter.css">
         
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="js/vendor/jquery-1.8.3.min.js"></script>
+        <script src="js/vendor/jquery-1.8.3.js"></script>
         <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -40,7 +40,6 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        
         <div class="container-narrow">
         	<div class="masthead">
         		
@@ -49,12 +48,12 @@
         				GotToVote! <i class="icon-chevron-right icon-white"></i></a></li>
         		</ul>-->
         		
-        		<h1 style=" text-align: center;">
+        		<h1>
         			<img src="img/badge1.png" alt="Nimeregister Badge" style="height: 50px; margin-top: -10px;"/> Nimeregister!</h1>
+        		<p class="lead">We are Registered, We have a Voice</p>
         		
         	</div>
-        	
-        	<hr />
+        </div>
 		
 		<!-- Main Stage - Content
 				==================================================	-->
@@ -62,15 +61,30 @@
 			{{ content }}
 		
 		<!--	==================================================	-->
+		
+		<footer>
+			<div class="container-narrow">
+				<div class="social-icons" style="margin-top: 30px;">
+					<h3>Share Nimeregister</h3>
+					<p> 
+					<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | GotToVote! Ke"
+					onClick="window.open('http://twitter.com/intent/tweet?text=Kura+yangu%2C+sauti+yangu.+Register+as+a+voter+today+and+get+your+stripes+on+%40nimeregister%21+http%3A%2F%2Fnimeregister.co.ke+%23nimeregister','Nimeregister','width=550,height=270');"><img src="img/social/twitter.png" alt="Share on Twitter" /></a>
+					<a href="javascript:void(0);" name="Share_FB" title="Share on FB | Nimeregister"
+					onClick='window.open("http://www.facebook.com/sharer.php?u=http%3A%2F%2Fnimeregister.co.ke","GotToVote","width=550,height=270");'><img src="img/social/facebook.png" alt="Share on Facebook" /></a>
+					<a href="https://plus.google.com/share?url=nimeregister.co.ke" onclick="javascript:window.open(this.href,
+					  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="img/social/googleplus.png" alt="Share on Google Plus" /></a>
+					</p>
+				</div>
+				
+				<hr />
+				
+				<div class="footer">
+					<p><a href="http://nimeregister.co.ke">&copy; Nimeregister!</a></p>
+				</div>
 			
-			<hr />
-        	
-        	<div class="footer">
-        		<p><a href="http://nimeregister.com">&copy; Nimeregister!</a></p>
-        	</div>
-        
-        </div>
-
+			</div>
+		</footer>
+		
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             var _gaq=[['_setAccount','UA-36818927-1'],['_trackPageview']];
