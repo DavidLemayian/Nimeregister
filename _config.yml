@@ -1,9 +1,11 @@
 pygments: true
 auto: true
 
-server_port: 4001
+port: 4001
 
 title: Nimeregister!
 url: http://nimeregister.co.ke
 
 claim: Join us! Register to vote and spread the word. Mimi Nimeregister je wewe?
+
+nimeregister_api: http://gtv.nimeregister
