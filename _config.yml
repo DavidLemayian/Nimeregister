@@ -1,10 +1,7 @@
-pygments: true
-auto: true
-
 port: 4001
 
 title: Nimeregister!
-url: http://nimeregister.co.ke
+url: https://nimeregister.on.co.ke
 
 claim: Join us! Register to vote and spread the word. Mimi Nimeregister je wewe?
 
